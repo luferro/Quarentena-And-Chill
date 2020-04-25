@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Q&amp;C</title>
+	<link href="./css/estilos.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body id="canvas">
+
+    <div class="d-flex" id="wrapper">
+		<div id="sidebar">
+			<div class="sidebar-heading">
+				<p><b>Quarentena and Chill</b></p>
+			</div>
+			<div class="list-group list-group-flush">
+				<a href="" id="chat" class="list-group-item list-group-item-action bg-dark"><i class="fa fa-comments" aria-hidden="true"></i> Sala Chat</a>
+				<a href="" id="assistir" class="list-group-item list-group-item-action bg-dark"><i class="fa fa-television" aria-hidden="true"></i> Sala Assistir</a>
+				<a class="list-group-item list-group-item-action atual"><i class="fa fa-paint-brush" aria-hidden="true"></i> Sala Canvas</a>
+			</div>
+			<div class="footer">Todos os direitos reservados.</div>
+		</div>
+		<div id="chat_global">
+			<div id="sidebar_chat_button">
+				<button id="global" class="btn btn-dark"><i class="fa fa-comments" aria-hidden="true"></i></a>
+			</div> 
+			<div id="sidebar_chat" class="mt-3">
+				<div id="chat-messages" class="chat_global"></div>
+				<form id="send-container" class="chat_global_form">
+					<div class="form-group">
+						<input type="text" class="form-control" id="message" autocomplete="off">
+					</div>
+					<button type="submit" class="btn btn-dark" id="send-button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+				</form>	
+			</div>
+		</div>
+		<div id="page-content">
+			<nav class="navbar navbar-expand-lg bg-dark navbar">
+				<button id="menu-toggle">&#9776;</button>
+				<div class="ml-auto mt-2 mt-lg-0">
+					<a href="/">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+				</div>
+			</nav>
+			<div class="container-fluid">
+				
+                <div class = "alert alert-dismissable mt-2 text-center">
+                    <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
+                       &times;
+                    </button>
+                    Desenha clicando e arrastando o rato na área cizenta! Podes eliminar o desenho com &#x2B06;
+                 </div>
+				<div id="sketch"></div>
+			</div>
+		</div>
+	</div>		
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/canvas.js"></script>
+	<script src="/chat.js"></script>
+	<script>	
+		$("#menu-toggle").click(function(e) {
+		  e.preventDefault();
+		  $("#wrapper").toggleClass("toggled");
+		});
+
+		$("#global").click(function(e) {
+		  e.preventDefault();
+		  $("#wrapper").toggleClass("chat_aberto");
+		});
+	</script>
+</body>
+</html>
